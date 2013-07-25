@@ -10,14 +10,13 @@
         <script src="jquery-maskmoney.js"></script>
         <link rel="stylesheet" type="text/css" href="Custom.css">
     </head> 
-    <body> 
-
+    <body>
+        
         <section data-role="page" id='overview' data-id="navheader" data-position="fixed">
             <div data-role="header">
                 <h1>Overview</h1>
             </div><!-- /header -->
             <div data-role="content">
-
             </div>
              <?myfooter();?>
         </section> <!-- /Bills -->
@@ -27,7 +26,6 @@
                 <h1>Bills</h1>
             </div><!-- /header -->
             <div data-role="content">
-
             </div>
             <?myfooter();?>
         </section> <!-- /Bills -->
@@ -38,7 +36,6 @@
                 <h1>Savings</h1>
             </div><!-- /header -->
             <div data-role="content">
-
             </div>
              <?myfooter();?>
 
@@ -50,7 +47,6 @@
                 <h1>Spending</h1>
             </div><!-- /header -->
             <div data-role="content">
-
             </div>
              <?myfooter();?>
 
@@ -83,7 +79,6 @@
                             <input type="submit" value="Submit">
                         </div>
                         <div id="transfer" class="divsection" style="display:none">
-
                         </div>
                         <div id="spending" class="divsection" style="display:none">
                             spending.. 
@@ -99,15 +94,8 @@
             </div><!-- /content -->
            <?myfooter();?>
         </section><!-- /transfers -->
-
-
-
-
-
     </body>
 </html>
-
-
 
 <?
 function myfooter(){  
