@@ -1,3 +1,5 @@
+<? include('Functions.php'); ?>
+
 <!DOCTYPE html> 
 <html> 
     <head> 
@@ -11,15 +13,17 @@
         <link rel="stylesheet" type="text/css" href="Custom.css">
     </head> 
     <body>
-        
+
         <section data-role="page" id='overview' data-id="navheader" data-position="fixed">
             <div data-role="header">
                 <h1>Overview</h1>
             </div><!-- /header -->
             <div data-role="content">
+
+
             </div>
-             <?myfooter();?>
-        </section> <!-- /Bills -->
+            <? myfooter(); ?>
+        </section> <!-- /overview -->
 
         <section data-role="page" id='bills' data-id="navheader" data-position="fixed">
             <div data-role="header">
@@ -27,7 +31,7 @@
             </div><!-- /header -->
             <div data-role="content">
             </div>
-            <?myfooter();?>
+            <? myfooter(); ?>
         </section> <!-- /Bills -->
 
 
@@ -37,7 +41,7 @@
             </div><!-- /header -->
             <div data-role="content">
             </div>
-             <?myfooter();?>
+            <? myfooter(); ?>
 
         </section> <!-- /Savings -->
 
@@ -48,7 +52,7 @@
             </div><!-- /header -->
             <div data-role="content">
             </div>
-             <?myfooter();?>
+            <? myfooter(); ?>
 
         </section> <!-- /Spending -->
 
@@ -79,6 +83,7 @@
                             <input type="submit" value="Submit">
                         </div>
                         <div id="transfer" class="divsection" style="display:none">
+                            <? var_dump(getAccountList('od6')); ?>
                         </div>
                         <div id="spending" class="divsection" style="display:none">
                             spending.. 
@@ -92,38 +97,8 @@
                     </div>
                 </form>
             </div><!-- /content -->
-           <?myfooter();?>
+            <? myfooter(); ?>
         </section><!-- /transfers -->
     </body>
 </html>
 
-<?
-function myfooter(){  
-    ?>
-     <div data-theme="a" data-role="footer" data-id="navfooter" data-position="fixed">
-                <div data-role="navbar" data-iconpos="top">
-                    <ul>
-                        <li>
-                            <a href="#overview" data-transition="fade" data-theme="" data-icon="info">
-                                Overview
-                            </a>
-                        </li>
-                        <li>
-                            <select class='footmenu' data-corners="false" data-native-menu="false" data-icon="info" data-iconpos="top">
-                                <option>Accounts</option>
-                                <option value="bills">Bills</option>
-                                <option value="spending">Spending</option>
-                                <option value="savings">Saving</option>
-                            </select>
-                        </li>
-                        <li>
-                            <a href="#transfers" data-transition="fade" data-theme="" data-icon="check">
-                                Transfers
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>   
-        <?
-}
-?>
