@@ -1,5 +1,6 @@
 <?
-
+    require_once  '/home/lawnsby/lib/Zend/Login.php';
+    
 function myfooter() {
     ?>
     <div data-theme="a" data-role="footer" data-id="navfooter" data-position="fixed">
@@ -31,16 +32,14 @@ function myfooter() {
 
 function getAccountList($ws) {
     // load Zend Gdata libraries
-    define("HOME", "/home/lawnsby");
-    require_once HOME . '/lib/Zend/Login.php';
-    try {
-        $service = Zend_Gdata_Spreadsheets::AUTH_SERVICE_NAME;
-        $client = Zend_Gdata_ClientLogin::getHttpClient($user, $pass, $service);
-        $spreadsheetService = new Zend_Gdata_Spreadsheets($client);
 
+global $client;
+    try {
+	
+        $spreadsheetService = new Zend_Gdata_Spreadsheets($client);     
         $query = new Zend_Gdata_Spreadsheets_ListQuery();
         $query->setSpreadsheetKey('tmqsvJYTInp6G1c-rR2itjg');
-        $query->setWorksheetID('od6');
+        $query->setWorksheetID($ws);
         $SheetEntries = $spreadsheetService->getListFeed($query);
 
 
@@ -51,7 +50,7 @@ function getAccountList($ws) {
         $l[] = 'Spending Accounts';
         $l[] = 'Name';
         $l[] = '';
-
+        
         for ($i = 0; $i <= $rows; $i++) {
             $rowData = $SheetEntries->entries[$i]->getCustom();
             foreach ($rowData as $customEntry) {
@@ -64,7 +63,7 @@ function getAccountList($ws) {
         }
         Return $AccountList;
     } catch (Exception $e) {
-        die('ERROR: ' . $e->getMessage());
+         die('ERROR: ' . $e->getMessage());
     }
 }
 ?>

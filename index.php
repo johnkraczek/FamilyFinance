@@ -60,7 +60,17 @@
             <div data-role="header">
                 <h1>Transfers</h1>
             </div><!-- /header -->
-            <div data-role="content">	
+            <div data-role="content">
+
+                <?
+                $incomeacts[]= 'John\'s Account';
+                $incomeacts[]= 'Kacee\'s Account';
+                $acts[] = $incomeacts;
+                $acts[] = getAccountList('od6');
+                $acts[] = getAccountList('od7');
+                $acts[] = getAccountList('od4');
+                ?>
+
                 <form action=''>
                     <div class="formfield" data-role="fieldcontain">-
                         <br><br>
@@ -83,7 +93,64 @@
                             <input type="submit" value="Submit">
                         </div>
                         <div id="transfer" class="divsection" style="display:none">
-                            <? var_dump(getAccountList('od6')); ?>
+                            <h3>Transfer From:</h3>
+                            <select id='FromAccount' data-native-menu="false"> 
+                                <option>Select Account</option>
+                                <optgroup label="Income">
+                                    <?
+                                    foreach ($acts[0] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                                <optgroup label="Monthly Accounts">
+                                    <?
+                                    foreach ($acts[1] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                                <optgroup label="Savings Accounts">
+                                    <?
+                                    foreach ($acts[2] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                                <optgroup label="Spending Accounts">
+                                    <?
+                                    foreach ($acts[3] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                            </select>
+                                                        <h3>Transfer To:</h3>
+                            <select id='ToAccount' data-native-menu="false"> 
+                                <option>Select Account</option>
+                                <optgroup label="Monthly Accounts">
+                                    <?
+                                    foreach ($acts[1] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                                <optgroup label="Savings Accounts">
+                                    <?
+                                    foreach ($acts[2] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                                <optgroup label="Spending Accounts">
+                                    <?
+                                    foreach ($acts[3] as $account) {
+                                        ?><option value='<? echo $account; ?>'><? echo $account; ?></option><?
+                                    }
+                                    ?>
+                                </optgroup>
+                            </select>
+
                         </div>
                         <div id="spending" class="divsection" style="display:none">
                             spending.. 
@@ -97,7 +164,7 @@
                     </div>
                 </form>
             </div><!-- /content -->
-            <? myfooter(); ?>
+<? myfooter(); ?>
         </section><!-- /transfers -->
     </body>
 </html>
